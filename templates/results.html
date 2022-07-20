@@ -1,0 +1,46 @@
+{% extends 'find_friends.html' %}
+
+{% block content %}
+
+
+{% for message in messages %}
+<h3 style="text-align: center;"> No similar results for '{{message}}'</h3>
+{% endfor %}
+
+
+{% for user in users %}
+<div class="cards">
+    <div class="card_header">
+        
+        {% if user.profile.image %}
+ 
+        <div class="profile_image">
+            <img style="display: inline-block;
+            height: 90px;
+            width: 80px;
+            padding: -3px;
+            margin: -2px;
+            margin-bottom: 20px;
+            border: 0 solid #000;
+            border-radius: 7%;" src="{{user.profile.image.url}}" alt="">
+        </div>
+            
+            {% endif %}
+        
+        
+        <div class="post_infos">
+            <a href=""><div class="post_name"><strong>{{user.username}}</strong></div></a>
+        
+            <div class="post_locations">{{user.profile.address}}</div>
+            
+        </div>
+        <div class="post_optionss"><h5><a href="#">Add Friend</a></h5>
+            </div>
+
+    </div>                   
+</div>
+{% endfor %}
+    
+{% endblock %}
+<!-- </body>
+</html> -->
